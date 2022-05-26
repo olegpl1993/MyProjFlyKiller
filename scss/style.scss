@@ -1,0 +1,133 @@
+@import url("nullstyle.css");
+
+//блоки нельзя выделять
+* {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+//-----------------------------
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+._cursorHide {
+    cursor: none; /* скрываем настоящий курсор */
+}
+
+//----кастомный курсор-----------------
+.cursor {
+    display: none;
+    height: 150px;
+    width: 150px;
+    background-image: url("../img/cursorr.png");
+    background-repeat: no-repeat;
+    pointer-events: none;
+    position: absolute;
+    box-sizing: border-box;
+    transform: translate(5%, -50%);
+    transition: all 0.05s;
+    z-index: 10;
+}
+._active {
+    transform-origin: right bottom;
+    transform: translate(5%, -50%) rotate(-30deg) rotate3d(2, 1, 0, 45deg);
+}
+._display {
+    display: block;
+}
+//-----------верхняя строка --------------
+.hirow {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+}
+.button {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 10px;
+}
+.button:hover {
+    background-color: black;
+    color: white;
+}
+.button:active {
+    background-color: red;
+    color: white;
+}
+.buttonHard {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    color: red;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.buttonHard:hover {
+    background-color: rgb(119, 119, 119);
+    color: rgb(255, 0, 0);
+}
+.buttonHard:active {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
+}
+.hitext {
+    font-size: 20px;
+    margin-right: 7px;
+}
+.counter {
+    font-size: 40px;
+    color: red;
+}
+.toptext,
+.time {
+    margin: 10px;
+    margin-left: 15px;
+    font-size: 20px;
+}
+.topscore,
+.seconds {
+    font-size: 25px;
+}
+.toprow {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+//---------игровое поле--------------------
+.playBox {
+    height: 70vh;
+    width: 70vw;
+    position: relative;
+}
+//----------живой обьект------------------------
+.fly {
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.icon {
+    transform: translate(-25px, -25px);
+}
+._nonedisplay {
+    display: none;
+}
+//------------пятно крови---------------------------
+.blood {
+    position: absolute;
+}
+//-------------------------------------------------

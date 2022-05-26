@@ -1,0 +1,169 @@
+@charset "UTF-8";
+@import url("nullstyle.css");
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+._cursorHide {
+  cursor: none;
+  /* скрываем настоящий курсор */
+}
+
+.cursor {
+  display: none;
+  height: 150px;
+  width: 150px;
+  background-image: url("../img/cursorr.png");
+  background-repeat: no-repeat;
+  pointer-events: none;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transform: translate(5%, -50%);
+          transform: translate(5%, -50%);
+  -webkit-transition: all 0.05s;
+  transition: all 0.05s;
+  z-index: 10;
+}
+
+._active {
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  -webkit-transform: translate(5%, -50%) rotate(-30deg) rotate3d(2, 1, 0, 45deg);
+          transform: translate(5%, -50%) rotate(-30deg) rotate3d(2, 1, 0, 45deg);
+}
+
+._display {
+  display: block;
+}
+
+.hirow {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  color: black;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}
+
+.button:active {
+  background-color: red;
+  color: white;
+}
+
+.buttonHard {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  color: red;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.buttonHard:hover {
+  background-color: #777777;
+  color: red;
+}
+
+.buttonHard:active {
+  background-color: black;
+  color: red;
+}
+
+.hitext {
+  font-size: 20px;
+  margin-right: 7px;
+}
+
+.counter {
+  font-size: 40px;
+  color: red;
+}
+
+.toptext,
+.time {
+  margin: 10px;
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.topscore,
+.seconds {
+  font-size: 25px;
+}
+
+.toprow {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.playBox {
+  height: 70vh;
+  width: 70vw;
+  position: relative;
+}
+
+.fly {
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.icon {
+  -webkit-transform: translate(-25px, -25px);
+          transform: translate(-25px, -25px);
+}
+
+._nonedisplay {
+  display: none;
+}
+
+.blood {
+  position: absolute;
+}
