@@ -16,7 +16,6 @@ let seconds;//Остаток секунд
 let second; //Таймер остатка времени
 
 
-
 //--Отслеживает движение мышкой и передвигает кастомный курсор-------
 const cursor = document.querySelector(".cursor");
 const mouseMove = function (e) {
@@ -34,7 +33,6 @@ const mouseDown = function (e) {
 document.addEventListener("mousedown", mouseDown)
 //----------------------------------------------------------
 
-
 //попадание по обьекту---------------------------------
 const flyItem = document.querySelector(".fly"); //инициализация обьекта
 //срабатывавет при попадании по обьекту
@@ -50,7 +48,6 @@ flyItem.addEventListener("mousedown", () => {
     setTimeout((() => flyItem.classList.remove("_nonedisplay")), 1000);;
 });
 //--------------------------------------------
-
 
 //основная функция игры---движения обьекта---------------
 function drawFly() {
@@ -184,7 +181,12 @@ function stopGame() {
 
 //старта игры
 const button = document.querySelector(".button"); //кнопка старт
-button.addEventListener("click", (e) => {
+button.addEventListener("click", () => startGame(20)); //передает в функцию параметр скорости
+const buttonHard = document.querySelector(".buttonHard"); //кнопка старт хард мод
+buttonHard.addEventListener("click", () => startGame(6)); //передает в функцию параметр скорости
+
+//функция принимает скорость обьекта. (чем ниже тем быстрее)
+function startGame(mod) {
     //останавливает поток текущей игры
     clearTimeout(timer);
     //останавливает поток обратного отсчета времени
@@ -201,38 +203,11 @@ button.addEventListener("click", (e) => {
     y = boxHeight / 2; //координаты обьекта с верху от края блока
     direction = 0; // направление движения, одно из 8 направленией
     stepCount = 0; // счетчик шагов
-    speed = 20; //скорость движения
+    speed = mod; //скорость движения
     killCounter = 0 //счетчика попаданий
     document.querySelector(".counter").textContent = killCounter; //рисует значение счетчика попаданий
 
     backTime(); //запуск потока таймера остаток времени
     drawFly(); //Запуск основного потока игры
-});
+};
 
-
-//старт хард игры
-const buttonHard = document.querySelector(".buttonHard"); //кнопка старт
-buttonHard.addEventListener("click", (e) => {
-    //останавливает поток текущей игры
-    clearTimeout(timer);
-    //останавливает поток обратного отсчета времени
-    clearTimeout(second);
-    //добавляет блок с обьектом на игровое поле
-    document.querySelector(".fly").innerHTML = '<img class="icon" src="img/fly.png">';
-    //скрывает курсор
-    document.querySelector(".body").classList.add("_cursorHide");
-    //показывает кастомный курсор
-    document.querySelector(".cursor").classList.add("_display");
-    //сброс всех переменных к базовым значениям
-    seconds = 60; //обратный отсчет
-    x = boxwidth / 2; //координаты обьекта с лева от края блока
-    y = boxHeight / 2; //координаты обьекта с верху от края блока
-    direction = 0; // направление движения, одно из 8 направленией
-    stepCount = 0; // счетчик шагов
-    speed = 6; //скорость движения
-    killCounter = 0 //счетчика попаданий
-    document.querySelector(".counter").textContent = killCounter; //рисует значение счетчика попаданий
-
-    backTime(); //запуск потока таймера остаток времени
-    drawFly(); //Запуск основного потока игры
-});
